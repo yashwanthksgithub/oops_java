@@ -1,0 +1,57 @@
+7. Interface 
+package module5;
+
+//import project1.intro;
+
+interface intro11 {
+
+		public void add(int a,int b);
+		public void sub(int a,int b);
+		default void mul(int a,int b) {
+			System.out.println("Multiplication of a and b is "+(a*b));
+		
+	}
+}
+
+
+class class15 implements intro11 {
+	int a;
+	int b;
+	public class15()
+	{
+		
+	}
+	public class15(int x){
+		this.a=x;
+	}
+	
+	public void add(int a,int b)
+	{
+		System.out.println(" result of Addition = "+(a+b));
+	}
+	public void sub(int a,int b)
+	{
+		System.out.println(" result of Subtraction  = "+(a-b));
+	}
+	void div(int a,int b)
+	{
+		System.out.println(" result of Division = "+(a/b));
+	}
+	
+}
+
+public class interface_imp {
+
+	public static void main(String[] args) {
+		class15 ob1=new class15();
+		ob1.add(10, 20);
+		ob1.sub(20,10);
+		ob1.div(10, 2);
+		intro11 ob2=new class15();
+		
+		ob2.mul(20,10);
+		
+
+	}
+
+}
