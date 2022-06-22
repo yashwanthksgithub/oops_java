@@ -1,0 +1,80 @@
+10. creation of Thread with implements and enable methos
+package module5;
+class NewThread1 implements Runnable{
+	Thread t;
+	String str;
+	NewThread1(String x)
+	{
+		this.str=x;
+		t=new Thread(this,str);
+		System.out.println("Child Thread is "+t);
+		t.start();
+	}
+	public void run(){
+		try {
+			for(int i=0;i<5;i++)
+			{
+				System.out.println("Child Thread" +i);
+				Thread.sleep(500);
+			}
+		}
+		
+		catch(InterruptedException e)
+		{
+			System.out.println("Child Thread is catch");
+		}
+		System.out.println("Child Thread is NOT catch");
+	}
+}
+
+class NewThread2 extends Thread{
+	NewThread2(){
+		super("Demo Thread");
+		System.out.println(this);
+		start();
+	}
+	
+	public void run()
+	{
+		try {
+			for(int i=0;i<5;i++)
+			{
+				System.out.println("Child "+i);
+				Thread.sleep(300);
+			}
+		}
+		catch(InterruptedException e)
+		{
+			System.out.println("Child Thread is catch");
+		}
+		System.out.println("Child Thread is NOT2 catch");
+	}
+}
+public class thread1 {
+	public static void main(String args[]) {
+		//new NewThread1();
+		//new NewThread2();
+		
+		Thread t = Thread.currentThread();
+		System.out.println(t);
+		t.setName("yashu");
+		System.out.println(t);
+		try {
+			for(int i=0;i<5;i++)
+			{
+				System.out.println("Main Thread" + i);
+				Thread.sleep(1000);
+				
+			}
+		}
+		
+		catch(Exception e)
+		{
+			System.out.println("Main Thread is catch");
+		}
+		System.out.println("Main Thread is Not catch");
+	}
+			
+}
+
+
