@@ -1,0 +1,108 @@
+8. Program Illustrating checked and unchecked exceptions
+
+package module2;
+
+class NewException extends Exception
+{
+	public NewException(String s)
+	{
+		super(s);
+	}
+}
+
+
+public class custom_exp2
+{
+	static void function() throws NullPointerException{
+		try {
+			throw new NullPointerException("Demo");
+		}
+		catch(NullPointerException e)
+		{
+			System.out.println("catch one time ");
+			throw e;
+		}
+	}
+	
+	public static void main(String args[]) throws NewException
+	{
+		System.out.println("Creating the Checked Exception");
+		try
+		{
+					throw new NewException("New Exception thrown here");		// Manully
+		}
+		
+		catch (NewException ex)
+		{
+					System.out.println("Caught"+ex);
+
+		}
+		System.out.println();
+		System.out.println();
+		System.out.println("creating the UnCustom Exception");
+		try {
+			function();
+		}
+		catch(NullPointerException e)
+		{
+			System.out.println("Catch of the NullPointerException Scecond time");
+		}
+	}
+}
+
+9. Program to create customized exception
+
+package module2;
+
+class NewExcp extends Exception{
+	public NewExcp(String s)
+	{
+		super(s);
+	}
+}
+
+class NewExcp2 extends Exception{
+	int x;
+	public NewExcp2(int a)
+	{
+		x=a;
+	}
+	public String Stringto(int a)
+	{
+		return "NEwExcp2";
+	}
+}
+public class custom_2and1 {
+	static void compute(int a) throws NewExcp2{
+		System.out.println("catch of a is " + a);
+		if(a>10)
+		{
+			throw new NewExcp2(a);
+		}
+		System.out.println("There is no Excp is created");
+	}
+
+	public static void main(String[] args) throws NewExcp{
+		System.out.println("One type of creating the Custom Exception");
+		try {
+			throw new NewExcp("demo");
+		}
+		catch(NewExcp e)
+		{
+			System.out.println("Catch "+e);
+		}
+		
+		System.out.println("Second type of creating the Custom Exception");
+		try {
+			//throw new NewExcp2("Demo 2");
+			compute(5);
+			compute(20);
+		}
+		catch(NewExcp2 e)
+		{
+			System.out.println("Catch 2 "+e);
+		}
+		
+	}
+}
+
