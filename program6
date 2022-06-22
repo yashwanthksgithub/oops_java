@@ -1,0 +1,103 @@
+6. Program to create and import packages.
+
+package module2;
+
+public class pac1 {
+	public int a=10;
+	protected int b=20;
+	int c=30;
+	private int d=40;
+		
+	public pac1(){
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);
+	}
+}
+
+package module2;
+
+public class pac2 extends pac1 {
+	// pac1() constructor - Order of const. execution
+	
+	pac2()
+	{
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+	//	System.out.println(d);
+	}
+}
+
+package module2;
+
+public class pac3 
+{
+	pac1 ref=new pac1();
+
+	pac3()
+	{
+		System.out.println(ref.a);
+		System.out.println(ref.b);
+		System.out.println(ref.c);
+		//System.out.println(ref.d);
+	}
+}
+
+package module2;
+
+public class main_pac1 {
+
+	public static void main(String[] args) {
+		System.out.println("same class");
+		pac1 obj=new pac1();
+
+		System.out.println("same class same sub class");
+		pac2 obj2=new pac2();
+		
+		
+		System.out.println("same class Non sub class");
+		pac3 obj3=new pac3();
+	}
+
+}
+
+package module5;
+
+public class pac4 extends module2.pac1{
+	public pac4()
+	{
+		System.out.println(a);
+		System.out.println(b);
+	//	System.out.println(c);
+	//	System.out.println(d);
+	}
+}
+
+package module5;
+
+public class pac5 {
+	module2.pac1 ref=new module2.pac1();
+	pac5()
+	{
+		System.out.println(ref.a);
+		//System.out.println(b);
+		//System.out.println(c);
+		//System.out.println(d);
+	}
+}
+
+package module5;
+
+public class main_pac2 {
+
+	public static void main(String[] args) {
+		System.out.println("different class sub class");
+		pac4 obj4=new pac4();
+		System.out.println("different class Non sub class");
+		pac5 obj5=new pac5();
+
+	}
+
+}
