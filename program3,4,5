@@ -1,0 +1,272 @@
+3. Create a Java class called Student with the following details as variables within it. USN, 
+Name, Branch, Phone. Write a Java program to create n Student objects and print the USN, 
+Name, Branch, and Phone of these objects with suitable headings.
+
+package oops_java;
+
+import java.util.Scanner;
+
+class Student
+{
+    String usn,name,branch;
+    int phno;
+    void studentDetails()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Name");
+        name=sc.nextLine();
+        System.out.println("Enter the USN");
+        usn=sc.nextLine();
+        System.out.println("Enter the Branch");
+        branch=sc.nextLine();
+        System.out.println("Enter the Phone number");
+        phno=sc.nextInt();
+    }
+
+    void  display()
+    {
+        System.out.println("The Student Details are");
+        System.out.println("Name:"+name);
+        System.out.println("USN:"+usn);
+        System.out.println("Branch: "+branch);
+        System.out.println("Phone no: "+phno);
+    }
+
+}
+
+public class program3 {
+
+    public static void main(String[] args)
+    {
+	    int n,i;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the number of students");
+        n=sc.nextInt();
+        Student st=new Student();
+        for(i=1;i<n+1;i++)
+        {
+            st.studentDetails();
+            st.display();
+
+        }
+    }
+}
+
+4. Program Illustrating Overloading & Overriding methods inJava.
+5. ProgramIllustrating the Implementation of Various forms of Inheritance
+package asection;
+import java.io.PrintWriter;
+import java.util.*;
+class box11
+{
+	int w;
+	int h;
+	int s;
+	void sum()
+	{
+		System.out.println(w+h);
+	}
+	
+	int sub(int w,int h)
+	{
+		return (w-h);
+	}
+	
+	int mull(int a,int b)
+	{
+		return (a*b);
+	}
+	
+	box11()
+	{
+		w=-1;
+		h=-1;
+	}
+	
+	box11(int w,int h)
+	{
+		this.w=w;
+		this.h=h;
+	}
+	box11(box11 ob)
+	{
+		this.w=ob.w;
+		this.h=ob.h;
+	}
+	
+	void show()
+	{
+		System.out.println("w and h are :"+ w +"and"+ h);
+	}
+	protected void finalize()
+	{
+		System.out.println("this final bro");
+	}
+	
+	void overload()
+	{
+		System.out.println("with no parameter or return type");
+	}
+	
+	int overload(int w,int h)
+	{
+	   return w*h;	
+	}
+	
+	
+}
+
+class box22 extends box11
+{
+	int l;
+	int s;
+	box22()
+	{
+		super();
+		l=-1;
+	}
+	
+	box22(int w,int h,int l)
+	{
+		super(w,h);
+		this.l=l;	
+	}
+	
+	box22(box22 ob)
+	{
+		super(ob);
+		this.l=ob.l;
+	}
+	
+	void sum()
+	{
+		System.out.println(w+h+l);
+	}
+	
+	void supershow(int a,int b)
+	{
+		super.s=a;
+		s=b;
+		System.out.println("this is super class :" +super.s);
+		System.out.println();
+		System.out.println("this is sub class :"+s);
+	}
+	
+	void show()
+	{
+		super.show();
+		System.out.println("this is for l is :"+this.l);
+	}
+}
+
+class box33 extends box22
+{
+	int b;
+	box33()
+	{
+		super();
+		b=-1;
+	}
+	
+	box33(int w,int h,int l,int b)
+	{
+		super(w,h,l);
+		this.b=b;
+	}
+	
+	box33(box33 ob)
+	{
+		super(ob);
+		this.b=ob.b;
+	}
+	
+	void show()
+	{
+		super.show();
+		System.out.println("this is for b is : "+l);
+	}
+}
+
+class box44 extends box11
+{
+	int a;
+	int x;
+	box44()
+	{
+		super();
+		a=-1;
+	}
+	
+	box44(int w,int h,int a)
+	{
+		super(w,h);
+		this.a=a;	
+	}
+	
+	box44(box44 ob)
+	{
+		super(ob);
+		this.a=ob.a;
+	}
+	
+	void show()
+	{
+		super.show();
+		System.out.println("this is for a is : "+a);
+	}
+	
+}	
+	
+public class test_1 {
+
+	public static void main(String[] args) {
+		
+		
+		box11 b1=new box11();
+		b1.w=10;
+		b1.h=3;
+		b1.sum();
+		int x;
+		x=b1.sub(10,5);
+		System.out.println(x);
+		x=b1.mull(2,3);
+		System.out.println(x);
+		//box11 b7=new box11(b1);
+		//b7.sum();
+		
+		box11 b2=new box11();
+		b2.sum();
+		
+		box11 b3= new box11(b1);
+		b3.sum();
+		
+		b3.finalize();
+		b3.overload();
+		System.out.println();
+		x=b3.overload(2,3);
+		System.out.println("mul of w and h in overload" + x);
+		
+		System.out.println("second class :");
+		box22 b4=new box22();
+		b4.sum();
+		System.out.println("second class :");
+		b4.show();
+		System.out.println("use of super class :");
+		b4.supershow(10, 5);
+		
+		b4.show();
+		
+		System.out.println("third box");
+		box33 b5=new box33();
+		b5.show();
+		
+		System.out.println("third box");
+		box44 b6=new box44(2,3,4);
+		b6.show();
+		
+		PrintWriter pc=new PrintWriter(System.out,true);
+		pc.println("Hello");
+	}
+
+}
+
