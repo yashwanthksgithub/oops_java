@@ -9,7 +9,11 @@ How to run :
 2. Open the code in Eclipse or JDK
 3. Compile and run
 
+program 1 :
+A. Simple Java Programs
+  a.
+
 Program 10 : 
-Purpose : To show creation of threads and implement/enable methods
+Purpose : To show creation of threads using implement/Runnable methods
 
 
