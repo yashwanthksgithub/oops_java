@@ -1,4 +1,4 @@
-10. creation of Thread with implements and enable methos
+10. creation of Thread with implements and Runnable methos
 package module5;
 class NewThread1 implements Runnable{
 	Thread t;
