@@ -23,7 +23,7 @@ public class fact1_1 {
 
 }
 
-B) to print prime numbers using CLA
+B) to print prime numbers.
 
 package oops_java;
 
@@ -58,7 +58,7 @@ public class prime1_3 {
 
 }
 
-C) to convert temperature from Fahrenheit to Celsius using CLA
+C) to convert temperature from Fahrenheit to Celsius.
 
 package oops_java;
 import java.util.*;
